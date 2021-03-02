@@ -16,5 +16,10 @@ namespace Spreadsheet_Hillary_Zhang
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
