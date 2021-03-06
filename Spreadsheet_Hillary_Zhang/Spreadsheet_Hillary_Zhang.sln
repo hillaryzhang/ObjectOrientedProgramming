@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spreadsheet_Hillary_Zhang",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.Tests1", "NUnit.Tests1\NUnit.Tests1.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CptS321", "ClassLibrary1\CptS321.csproj", "{BFA8F937-3E8C-4A5D-AD4E-D322DC2D4C9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetEngine", "ClassLibrary1\SpreadsheetEngine.csproj", "{BFA8F937-3E8C-4A5D-AD4E-D322DC2D4C9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
