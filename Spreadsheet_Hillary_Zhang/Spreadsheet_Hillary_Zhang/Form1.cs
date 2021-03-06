@@ -19,11 +19,23 @@ namespace Spreadsheet_Hillary_Zhang
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataTable datatable = new DataTable();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // columns
             for (char c = 'A'; c <= 'Z'; c++)
             {
                 string letter = c.ToString();
-                datatable.Columns.Add(new DataColumn(letter, typeof(string)));
+                dataGridView1.Columns.Add(letter, letter);
+            }
+
+            //rows
+            for (int i = 0; i < 50; i++)
+            {
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
             }
         }
     }
