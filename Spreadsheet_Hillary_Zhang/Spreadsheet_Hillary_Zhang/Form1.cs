@@ -19,7 +19,12 @@ namespace Spreadsheet_Hillary_Zhang
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            DataTable datatable = new DataTable();
+            for (char c = 'A'; c <= 'Z'; c++)
+            {
+                string letter = c.ToString();
+                datatable.Columns.Add(new DataColumn(letter, typeof(string)));
+            }
         }
     }
 }
