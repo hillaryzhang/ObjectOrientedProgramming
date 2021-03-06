@@ -9,12 +9,25 @@ namespace NUnit.Tests1
     [TestFixture]
     public class TestClass
     {
+
         [Test]
-        public void TestMethod()
+        public void TestCellClass()
         {
-            // TODO: Add your test code here
-            var answer = 42;
-            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+            /// Add test code here
+            /// var answer = 42;
+           /// Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+        }
+
+        [Test]
+        public void TestSpreadSheetClass()
+        {
+            ///
+        }
+
+        [Test]
+        public void TestCellPropertyChangedEvent()
+        {
+            ///
         }
     }
 }
