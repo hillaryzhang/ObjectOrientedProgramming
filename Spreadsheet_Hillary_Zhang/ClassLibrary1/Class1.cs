@@ -21,10 +21,11 @@ namespace CptS321
         public string Text()
         {
             get { return text; }
-            set 
-            {
-                
-            }
+        }
+        public string Text(string newText)
+        {
+            this.text = newText;
+
         }
     }
 
