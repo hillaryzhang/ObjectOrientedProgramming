@@ -16,6 +16,7 @@ namespace CptS321
         public int ColumnIndex { get; set; }
 
         protected string text = string.Empty;
+        protected string value = string.Empty;
 
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
@@ -25,7 +26,6 @@ namespace CptS321
             {
                 return text;
             }
-
             set
             {
                 if (value == text) { return; }
@@ -33,8 +33,14 @@ namespace CptS321
                 PropertyChanged(this, new PropertyChangedEventArgs(Text));
             }
         }
-
-
+        public string Value
+        {
+            get
+            {
+                return value;
+            }
+            // implement setter privately somehow?
+        }
 
     }
 
