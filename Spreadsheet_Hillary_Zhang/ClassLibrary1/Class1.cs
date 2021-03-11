@@ -30,16 +30,25 @@ namespace CptS321
             {
                 if (value == text) { return; }
                 text = value;
-                PropertyChanged(this, new PropertyChangedEventArgs(Text));
+                PropertyChanged(this, new PropertyChangedEventArgs("Text"));
             }
         }
         public string Value
         {
             get
             {
-                return value;
+                return this.value;
             }
-            // implement setter privately somehow?
+            protected internal set
+            {
+                if (value == this.value)
+                    return;
+                else
+                {
+                    this.value = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Value"));
+                }
+            }
         }
 
     }
@@ -47,6 +56,10 @@ namespace CptS321
     /// post: Serves as a container for a 2D array of cells. Also serves as a factory for cells (it creates all the cells in the spreadsheet)
     public class Spreadsheet
     {
-
+        public Spreadsheet(int rows, int columns)
+        {
+            string[,] cells = new string[rows, columns];
+            //create header for rows (rowIndex) and header for columns (rowColumn)
+        }
     }
 }
