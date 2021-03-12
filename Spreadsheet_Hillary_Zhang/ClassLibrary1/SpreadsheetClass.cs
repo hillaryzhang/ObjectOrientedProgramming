@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-namespace ClassLibrary1
+namespace CptS321
 {
     /// post: Serves as a container for a 2D array of cells. Also serves as a factory for cells (it creates all the cells in the spreadsheet)
     public class Spreadsheet
@@ -12,6 +14,7 @@ namespace ClassLibrary1
         private int rowCount;
         private int columnCount;
         protected Cell[,] spreadsheet;
+
         public event PropertyChangedEventHandler CellPropertyChanged;
 
         // 5c

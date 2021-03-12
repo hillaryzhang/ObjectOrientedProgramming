@@ -12,13 +12,12 @@ namespace CptS321
     /// post: Represents one cell in the worksheet
     public abstract class Cell : INotifyPropertyChanged
     {
-        public delegate void PropertyChangedEventHandler(Object sender, PropertyChangedEventArgs e);
         public int rowIndex { get; set; }
         public int columnIndex { get; set; }
         protected string text = string.Empty;
         protected string value = string.Empty;
 
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Text
         {
@@ -30,7 +29,9 @@ namespace CptS321
             {
                 if (value == text) { return; }
                 text = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Text"));
+                
+                // Call OnPropertyChanged whenever the property is updated
+                OnPropertyChanged();
             }
         }
         public string Value
@@ -46,9 +47,15 @@ namespace CptS321
                 else
                 {
                     this.value = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("Value"));
+                    
+                    // Call OnPropertyChanged whenever the property is updated
+                    OnPropertyChanged();
                 }
             }
+        }
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
     }
