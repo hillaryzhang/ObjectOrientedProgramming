@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,8 @@ namespace CptS321
     public abstract class Cell : INotifyPropertyChanged
     {
         public delegate void PropertyChangedEventHandler(Object sender, PropertyChangedEventArgs e);
-        public int RowIndex { get; set; }
-        public int ColumnIndex { get; set; }
-
+        public int rowIndex { get; set; }
+        public int columnIndex { get; set; }
         protected string text = string.Empty;
         protected string value = string.Empty;
 
@@ -52,14 +52,7 @@ namespace CptS321
         }
 
     }
-
-    /// post: Serves as a container for a 2D array of cells. Also serves as a factory for cells (it creates all the cells in the spreadsheet)
-    public class Spreadsheet
-    {
-        public Spreadsheet(int rows, int columns)
-        {
-            string[,] cells = new string[rows, columns];
-            //create header for rows (rowIndex) and header for columns (rowColumn)
-        }
-    }
 }
+
+
+
