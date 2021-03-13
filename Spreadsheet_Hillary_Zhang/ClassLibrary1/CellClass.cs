@@ -1,4 +1,10 @@
-﻿
+﻿// Hillary Zhang
+// WSU ID: 11694139
+// 3/05/2021
+// CptS 321
+// Professor: Venera Arnaoudova
+// Assignment 4: First Steps for your Spreadsheet Application
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +15,7 @@ using System.Runtime.CompilerServices;
 
 namespace CptS321
 {
-    /// post: Represents one cell in the worksheet
+    /// This class represents one cell in the worksheet
     public abstract class Cell : INotifyPropertyChanged
     {
         public int rowIndex { get; set; }
@@ -19,6 +25,7 @@ namespace CptS321
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
+        /// post: Returns and updates the text of the cell
         public string Text
         {
             get
@@ -34,6 +41,8 @@ namespace CptS321
                 PropertyChanged(this, new PropertyChangedEventArgs("Text"));
             }
         }
+
+        /// post: Returns and updates the value of the cell
         public string Value
         {
             get
@@ -53,6 +62,9 @@ namespace CptS321
                 }
             }
         }
+
+        /// post: Updates the text or value of the cell 
+        /// string name - the indicator of whether it is the text or value that needs updated
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
