@@ -17,8 +17,15 @@ namespace CptS321
         {
             InitializeComponent();
             this.spreadsheet = new Spreadsheet(50, 26);
+        }
 
-            spreadsheet.PropertyChanged += OnPropertyChanged; 
+        private void OnCellPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Cell cell = (Cell)sender;
+            if (cell != null && e.PropertyName == "Value")
+            {
+                dataGridView1.Rows[cell.rowIndex].Cells[cell.columnIndex].Value = cell.Value; // ???
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -28,6 +35,8 @@ namespace CptS321
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            spreadsheet.CellPropertyChanged += OnCellPropertyChanged; // subscribing to spreadsheet's CellPropertyChanged event
+
             // columns
             for (char c = 'A'; c <= 'Z'; c++)
             {

@@ -16,7 +16,6 @@ namespace CptS321
         protected Cell[,] spreadsheet;
 
         public event PropertyChangedEventHandler CellPropertyChanged;
-        
         //public event EventHandler<ProcessEventArgs> CellPropertyChanged;
 
     /// post: Constructs a spreadsheet that takes a number of rows and columns, and initializes the array of cells with the proper RowIndex and ColumnIndex value
@@ -26,9 +25,9 @@ namespace CptS321
             this.columnCount = columns;
             this.spreadsheet = new Cell[rows, columns];
 
-            for (int r = 1; r <= rows; r++) //to allocate each row
+            for (int r = 0; r < rows; r++) //to allocate each row
             {
-                for (int c = 1; c <= columns; c++) //to allocate each column in each row
+                for (int c = 0; c < columns; c++) //to allocate each column in each row
                 {
                     spreadsheet[r, c] = new CellImplementation(r, c, "");  // 5c.2, give array of cells proper RowIndex and ColumnIndex values 
                     spreadsheet[r, c].PropertyChanged += OnPropertyChanged;  // the spreadsheet class subscribing to all the PropertyChanged events for every cell
