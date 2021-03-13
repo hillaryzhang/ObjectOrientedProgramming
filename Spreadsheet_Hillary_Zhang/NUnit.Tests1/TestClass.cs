@@ -16,29 +16,21 @@ namespace NUnit.Tests1
 {
     /// This class makes sure the spreadsheet engine creates and updates the spreadsheet correctly
     [TestFixture]
-    public class TestClass : Spreadsheet
+    public class TestClass 
     {
-
-        [Test]
-        public void TestCellClass()
-        {
-            /// Add test code here
-            /// var answer = 42;
-           /// Assert.That(answer, Is.EqualTo(42), "Some useful error message");
-        }
 
         [Test]
         public void TestSpreadsheetEdgeCase()
         {
             Spreadsheet spreadsheet = new Spreadsheet(0, 0);
-            Assert.That()
+            
         }
 
         [Test]
         public void TestCellEqualValue()
         {
             Spreadsheet sheet = new Spreadsheet(25, 25);
-            Cell[,] spreadsheet = sheet.spreadsheet
+            /*Cell[,] spreadsheet = sheet.spreadsheet
 
             for (int i = 0; i < 25; i++) // 7d.2
             {
@@ -47,7 +39,7 @@ namespace NUnit.Tests1
             for (int i = 0; i < 25; i++) // 7d.3
             {
                 spreadsheet[i, 0].Text = "=B" + (i + 1);
-            }
+            } */
         }
     }
 }
