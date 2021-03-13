@@ -22,15 +22,15 @@ namespace NUnit.Tests1
         [Test]
         public void TestSpreadsheetEdgeCase()
         {
-            Spreadsheet spreadsheet = new Spreadsheet(0, 0);
+            // Spreadsheet spreadsheet = new Spreadsheet(0, 0);
             
         }
 
         [Test]
         public void TestCellEqualValue()
         {
-            Spreadsheet sheet = new Spreadsheet(25, 25);
-            /*Cell[,] spreadsheet = sheet.spreadsheet
+            /*Spreadsheet sheet = new Spreadsheet(25, 25);
+            
 
             for (int i = 0; i < 25; i++) // 7d.2
             {
@@ -39,7 +39,7 @@ namespace NUnit.Tests1
             for (int i = 0; i < 25; i++) // 7d.3
             {
                 spreadsheet[i, 0].Text = "=B" + (i + 1);
-            } */
-        }
+            }  */
+        } 
     }
 }
