@@ -47,14 +47,14 @@ namespace CptS321
                 else //6c
                 {
                    
-                    string formula = ((Cell)sender).Text.Substring(1);
+                    string formula = ((Cell)sender).Text.Substring(1); // these three lines is pulling value from another cell by reading in the cell number (ie. "A5") (6c.2)
                     int column = Convert.ToInt16(formula[0]) - 'A';
                     int row = Convert.ToInt16(formula.Substring(1)) - 1;
-                    ((Cell)sender).Value = (GetCell(row, column)).Value;
+                    ((Cell)sender).Value = (GetCell(row, column)).Value; 
                 }
 
             }
-            CellPropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("Value"));
+            CellPropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("Value")); // if PropertyName is Value, update value of cell (6a)
         }
 
         // post: returns the cell at the location of the given row and column index (5g)
@@ -83,6 +83,32 @@ namespace CptS321
             {
                 return this.rowCount;
             }
+        }
+
+        public void Demo()
+        {
+            int i = 0;
+            Random rand = new Random();
+
+            while (i < 50) // 7d.1
+            {
+                int randomColumn = rand.Next(0, 25);
+                int randomRow = rand.Next(0, 49);
+
+                Cell toFill = GetCell(randomRow, randomColumn);
+                toFill.Text = "Hello World!";
+                this.spreadsheet[randomRow, randomColumn] = toFill;
+                i++;
+            }
+            for (i = 0; i < 50; i++) // 7d.2
+            {
+                this.spreadsheet[i, 1].Text = "This is cell B" + (i + 1);
+            }
+            for (i = 0; i < 50; i++) // 7d.3
+            {
+                this.spreadsheet[i, 0].Text = "=B" + (i + 1);
+            }
+
         }
     }
 }
