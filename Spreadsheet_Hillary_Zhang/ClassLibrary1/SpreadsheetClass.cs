@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 namespace CptS321
 {
     /// post: Serves as a container for a 2D array of cells. Also serves as a factory for cells (it creates all the cells in the spreadsheet)
-    public class Spreadsheet
+    public class Spreadsheet : Cell
     {
         private int rowCount;
         private int columnCount;
@@ -22,23 +22,39 @@ namespace CptS321
         {
             this.rowCount = rows;
             this.columnCount = columns;
-            spreadsheet = new Cell[rows, columns];
+            this.spreadsheet = new Cell[rows, columns];
 
             for (int r = 1; r <= rows; r++) //to allocate each row
             {
                 for (int c = 1; c <= columns; c++) //to allocate each column in each row
                 {
-                    //5c.2, give array of cells proper RowIndex and ColumnIndex values
-                    spreadsheet[r, c] = new CellImplementation(r, c, "");
-                    spreadsheet[r, c].PropertyChanged += OnPropertyChanged();
+                    spreadsheet[r, c] = new CellImplementation(r, c, "");  // 5c.2, give array of cells proper RowIndex and ColumnIndex values 
+                    spreadsheet[r, c].PropertyChanged += OnPropertyChanged;  // the spreadsheet class subscribing to all the PropertyChanged events for every cell
 
                 }
             }
-
         }
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            CellPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            if(e.PropertyName == "Text")
+            {
+                if(!((Cell)sender).Text.StartsWith("=")) //6b
+                {
+                    ((Cell)sender).Value = ((Cell)sender).Text;
+                    
+                }
+                else //6c
+                {
+                   
+                    string formula = ((Cell)sender).Text.Substring(1);
+                    int column = Convert.ToInt16(formula[0]) - 'A';
+                    int row = Convert.ToInt16(formula.Substring(1)) - 1;
+                    ((Cell)sender).Value = (GetCell(row, column)).Value;
+                }
+
+            }
+            CellPropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("Value"));
         }
 
         // post: returns the cell at the location of the given row and column index (5g)

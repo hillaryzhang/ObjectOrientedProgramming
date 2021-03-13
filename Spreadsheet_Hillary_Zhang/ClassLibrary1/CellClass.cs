@@ -17,21 +17,21 @@ namespace CptS321
         protected string text = string.Empty;
         protected string value = string.Empty;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         public string Text
         {
             get
             {
-                return text;
+                return this.text;
             }
             set
             {
-                if (value == text) { return; }
-                text = value;
-                
-                // Call OnPropertyChanged whenever the property is updated
-                OnPropertyChanged();
+                if (value == this.text) { return; }
+                this.text = value;
+
+                // Call PropertyChanged whenever the property is updated
+                PropertyChanged(this, new PropertyChangedEventArgs("Text"));
             }
         }
         public string Value
@@ -47,9 +47,9 @@ namespace CptS321
                 else
                 {
                     this.value = value;
-                    
-                    // Call OnPropertyChanged whenever the property is updated
-                    OnPropertyChanged();
+
+                    // Call PropertyChanged whenever the property is updated
+                    PropertyChanged(this, new PropertyChangedEventArgs("Value"));
                 }
             }
         }
