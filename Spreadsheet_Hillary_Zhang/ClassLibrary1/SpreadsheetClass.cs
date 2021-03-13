@@ -16,9 +16,11 @@ namespace CptS321
         protected Cell[,] spreadsheet;
 
         public event PropertyChangedEventHandler CellPropertyChanged;
+        
+        //public event EventHandler<ProcessEventArgs> CellPropertyChanged;
 
-        /// post: Constructs a spreadsheet that takes a number of rows and columns, and initializes the array of cells with the proper RowIndex and ColumnIndex value
-        public Spreadsheet(int rows, int columns)
+    /// post: Constructs a spreadsheet that takes a number of rows and columns, and initializes the array of cells with the proper RowIndex and ColumnIndex value
+    public Spreadsheet(int rows, int columns)
         {
             this.rowCount = rows;
             this.columnCount = columns;

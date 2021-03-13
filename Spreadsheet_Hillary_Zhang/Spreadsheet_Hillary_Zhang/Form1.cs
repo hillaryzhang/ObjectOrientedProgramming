@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Spreadsheet_Hillary_Zhang
+namespace CptS321
 {
     public partial class Form1 : Form
     {
+        private Spreadsheet spreadsheet;
         public Form1()
         {
             InitializeComponent();
+            this.spreadsheet = new Spreadsheet(50, 26);
+
+            spreadsheet.PropertyChanged += OnPropertyChanged; 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -37,6 +41,11 @@ namespace Spreadsheet_Hillary_Zhang
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            spreadsheet.Demo();
         }
     }
 }
