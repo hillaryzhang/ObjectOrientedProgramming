@@ -16,7 +16,7 @@ namespace NUnit.Tests1
 {
     /// This class makes sure the spreadsheet engine creates and updates the spreadsheet correctly
     [TestFixture]
-    public class TestClass 
+    public class TestClassHW4 
     {
 
         [Test]
