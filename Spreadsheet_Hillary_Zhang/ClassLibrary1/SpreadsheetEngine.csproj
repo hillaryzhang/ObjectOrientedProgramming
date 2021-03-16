@@ -46,6 +46,7 @@
     <Compile Include="BaseNode.cs" />
     <Compile Include="BinaryOperatorNode.cs" />
     <Compile Include="BinaryOperatorHelper.cs" />
+    <Compile Include="OperatorNodeFactory.cs" />
     <Compile Include="VariableNode.cs" />
     <Compile Include="NumericalValueNode.cs" />
     <Compile Include="ExpressionTree.cs" />
