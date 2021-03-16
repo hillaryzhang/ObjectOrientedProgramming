@@ -38,21 +38,21 @@ namespace NUnit.TestHW5
         [Test]
         public void subtractionTestEvaluate()
         {
-            Assert.AreEqual(3, this.additionTest.Evaluate());
+            Assert.AreEqual(3, this.subtractionTest.Evaluate());
         }
 
         // post: makes sure that the given expression matches the final string expression
         [Test]
         public void subtractionTestExpression()
         {
-            Assert.AreEqual("11-5-3", this.additionTest.Expression); // Expression: the string value that is set to the expression
+            Assert.AreEqual("11-5-3", this.subtractionTest.Expression); // Expression: the string value that is set to the expression
         }
 
         // post: makes sure that subtraction does not yield a null
         [Test]
         public void subtractionTestIsNotNull()
         {
-            Assert.IsNotNull(this.additionTest);
+            Assert.IsNotNull(this.subtractionTest);
         }
     }
 }
