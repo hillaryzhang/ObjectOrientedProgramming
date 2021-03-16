@@ -12,7 +12,7 @@ namespace CptS321
     public abstract class BaseNode
     {
         protected string name; // to be set in the three node classes that inherit from the base node, 
-                               // indicates what type of node it is (numerical value, variable, or operator)
+                               // indicates what "value" the node is (numerical value, variable, or operator)
         protected double operatorValue; // to be set in the three node classes that inherit from the base node, 
                                         // indicates what the numerical value for operating is 
         
