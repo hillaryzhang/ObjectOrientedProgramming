@@ -54,5 +54,28 @@ namespace NUnit.TestHW5
         {
             Assert.IsNotNull(this.subtractionTest);
         }
+
+        private CptS321.ExpressionTree multiplyDivideTest = new CptS321.ExpressionTree("10/2*4");
+
+        // post: makes sure that multiplication and division yields the correct value based on the given expression
+        [Test]
+        public void multiplyDivideTestEvaluate()
+        {
+            Assert.AreEqual(20, this.multiplyDivideTest.Evaluate());
+        }
+
+        // post: makes sure that the given expression matches the final string expression
+        [Test]
+        public void multiplyDivideTestExpression()
+        {
+            Assert.AreEqual("10/2*4", this.multiplyDivideTest.Expression); // Expression: the string value that is set to the expression
+        }
+
+        // post: makes sure that multiplication and division does not yield a null
+        [Test]
+        public void multiplyDivideTestIsNotNull()
+        {
+            Assert.IsNotNull(this.multiplyDivideTest);
+        }
     }
 }
