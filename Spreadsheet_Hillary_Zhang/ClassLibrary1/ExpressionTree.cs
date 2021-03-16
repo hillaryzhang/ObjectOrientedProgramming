@@ -33,7 +33,8 @@ namespace CptS321
         // post: evaluates the expression to a double value
         public double Evaluate()
         {
-            return root.Evaluate(); // ?? how to get "final answer" evaluated single number
+            return this.Evaluate(this.root); // ?? how to get "final answer" evaluated single number
+            // error has to do with abstract nonabstract/internal class inconsistencies?
         }
     }
 }
