@@ -1,4 +1,11 @@
-﻿// NUnit 3 tests
+﻿// Hillary Zhang
+// WSU ID: 11694139
+// 3/12/2021
+// CptS 321
+// Professor: Venera Arnaoudova
+// Assignment 5: Arithmetic Expression Trees (Part 1)
+
+// NUnit 3 tests
 // See documentation : https://github.com/nunit/docs/wiki/NUnit-Documentation
 using NUnit.Framework;
 using System.Collections;

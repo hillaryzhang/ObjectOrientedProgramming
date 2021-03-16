@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Hillary Zhang
+// WSU ID: 11694139
+// 3/12/2021
+// CptS 321
+// Professor: Venera Arnaoudova
+// Assignment 5: Arithmetic Expression Trees (Part 1)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +14,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace CptS321
 {
+    // This class serves as a factory for the OperatorNode class
     internal class OperatorNodeFactory
     {
+        // post: creates and returns a new BinaryOperatorNode based on the type of operator
+        // char theOperator - the given operator: +, -, *, or /
         public static BinaryOperatorNode CreateOperatorNode(char theOperator)
         {
             switch (theOperator)
@@ -25,6 +35,8 @@ namespace CptS321
             return null;
         }
 
+        // post: returns whether the given operator is a valid operator
+        // char theOperator - the given operator: should be +, -, *, or /
         public static bool IsValidOperator(char theOperator)
         {
             switch (theOperator)

@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Hillary Zhang
+// WSU ID: 11694139
+// 3/12/2021
+// CptS 321
+// Professor: Venera Arnaoudova
+// Assignment 5: Arithmetic Expression Trees (Part 1)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

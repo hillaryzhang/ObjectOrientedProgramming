@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Hillary Zhang
+// WSU ID: 11694139
+// 3/12/2021
+// CptS 321
+// Professor: Venera Arnaoudova
+// Assignment 5: Arithmetic Expression Trees (Part 1)
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics.CodeAnalysis;
@@ -39,7 +46,8 @@ namespace CptS321
 
         // Additional methods outside of given three below
 
-
+        // post: creates and returns a node in the expression tree that represents the given variable
+        // string variable - the given variable to set the node to 
         private static BaseNode BuildVariableNode(string variable)
         {
             double num;
@@ -52,6 +60,8 @@ namespace CptS321
             return new VariableNode(variable);
         }
 
+        // post: creates and returns a node in the expression tree based on the given expression
+        // string expression - the given english expression that may consist of letters, numbers, and operators
         private static BaseNode GetNode(string expression)
         {
             if (expression.Length != 0)
@@ -85,6 +95,8 @@ namespace CptS321
             return null;
         }
 
+        // post: returns the numerical value of a given node
+        // BaseNode node - the given node to get the numerical value of 
         private double GetNumericalValue(BaseNode node)
         {
             if (node != null && node is BinaryOperatorNode)
