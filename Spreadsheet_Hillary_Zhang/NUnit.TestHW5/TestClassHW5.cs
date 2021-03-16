@@ -22,7 +22,7 @@ namespace NUnit.TestHW5
         [Test]
         public void additionTestExpression()
         {
-            Assert.AreEqual("4+1+9", this.additionTest.Expression); // Expression: the string value that is set to the expression
+            Assert.AreEqual("4+1+9", this.additionTest.expression); // Expression: the string value that is set to the expression
         }
 
         // post: makes sure that addition does not yield a null
@@ -45,7 +45,7 @@ namespace NUnit.TestHW5
         [Test]
         public void subtractionTestExpression()
         {
-            Assert.AreEqual("11-5-3", this.subtractionTest.Expression); // Expression: the string value that is set to the expression
+            Assert.AreEqual("11-5-3", this.subtractionTest.expression); // Expression: the string value that is set to the expression
         }
 
         // post: makes sure that subtraction does not yield a null
@@ -68,7 +68,7 @@ namespace NUnit.TestHW5
         [Test]
         public void multiplicationTestExpression()
         {
-            Assert.AreEqual("10*2*4", this.multiplicationTest.Expression); // Expression: the string value that is set to the expression
+            Assert.AreEqual("10*2*4", this.multiplicationTest.expression); // Expression: the string value that is set to the expression
         }
 
         // post: makes sure that multiplication does not yield a null
@@ -91,7 +91,7 @@ namespace NUnit.TestHW5
         [Test]
         public void divisionTestExpression()
         {
-            Assert.AreEqual("10/2/5", this.divisionTest.Expression); // Expression: the string value that is set to the expression
+            Assert.AreEqual("10/2/5", this.divisionTest.expression); // Expression: the string value that is set to the expression
         }
 
         // post: makes sure that division does not yield a null
