@@ -43,6 +43,10 @@
   <ItemGroup>
     <Compile Include="CellClass.cs" />
     <Compile Include="CellHelperClass.cs" />
+    <Compile Include="BaseNode.cs" />
+    <Compile Include="BinaryOperatorNode.cs" />
+    <Compile Include="VariableNode.cs" />
+    <Compile Include="NumericalValueNode.cs" />
     <Compile Include="ExpressionTree.cs" />
     <Compile Include="SpreadsheetClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
