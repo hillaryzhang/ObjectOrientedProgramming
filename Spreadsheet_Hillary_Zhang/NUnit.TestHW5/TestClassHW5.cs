@@ -61,14 +61,14 @@ namespace NUnit.TestHW5
         [Test]
         public void multiplicationTestEvaluate()
         {
-            Assert.AreEqual(20, this.multiplicationTest.Evaluate());
+            Assert.AreEqual(80, this.multiplicationTest.Evaluate());
         }
 
         // post: makes sure that the given expression matches the final string expression
         [Test]
         public void multiplicationTestExpression()
         {
-            Assert.AreEqual("10/2*4", this.multiplicationTest.Expression); // Expression: the string value that is set to the expression
+            Assert.AreEqual("10*2*4", this.multiplicationTest.Expression); // Expression: the string value that is set to the expression
         }
 
         // post: makes sure that multiplication does not yield a null
@@ -76,6 +76,29 @@ namespace NUnit.TestHW5
         public void multiplicationTestIsNotNull()
         {
             Assert.IsNotNull(this.multiplicationTest);
+        }
+
+        private CptS321.ExpressionTree divisionTest = new CptS321.ExpressionTree("10/2/5");
+
+        // post: makes sure that division yields the correct value based on the given expression
+        [Test]
+        public void divisionTestEvaluate()
+        {
+            Assert.AreEqual(1, this.divisionTest.Evaluate());
+        }
+
+        // post: makes sure that the given expression matches the final string expression
+        [Test]
+        public void divisionTestExpression()
+        {
+            Assert.AreEqual("10/2/5", this.divisionTest.Expression); // Expression: the string value that is set to the expression
+        }
+
+        // post: makes sure that division does not yield a null
+        [Test]
+        public void divisionTestIsNotNull()
+        {
+            Assert.IsNotNull(this.divisionTest);
         }
     }
 }
