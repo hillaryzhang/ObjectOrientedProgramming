@@ -59,6 +59,6 @@ namespace CptS321
             }
         }
 
-        public abstract double Evaluate(double left, double right);
+        public abstract double GetNumericalValue(double left, double right);
     }
 }

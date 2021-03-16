@@ -15,7 +15,7 @@ namespace CptS321
             {
             }
 
-            public override double Evaluate(double left, double right)
+            public override double GetNumericalValue(double left, double right)
             {
                 return left + right;
             }
@@ -26,7 +26,7 @@ namespace CptS321
             public SubtractionNode() : base('-')
             {
             }
-            public override double Evaluate(double left, double right)
+            public override double GetNumericalValue(double left, double right)
             {
                 return left - right;
             }
@@ -37,7 +37,7 @@ namespace CptS321
             public MultiplicationNode() : base('*')
             {
             }
-            public override double Evaluate(double left, double right)
+            public override double GetNumericalValue(double left, double right)
             {
                 return left * right;
             }
@@ -48,7 +48,7 @@ namespace CptS321
             public DivisionNode() : base('/')
             {
             }
-            public override double Evaluate(double left, double right)
+            public override double GetNumericalValue(double left, double right)
             {
                 return left / right;
             }

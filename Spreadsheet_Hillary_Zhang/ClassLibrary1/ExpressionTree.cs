@@ -17,7 +17,7 @@ namespace CptS321
         // string expression - the given expression to construct a tree from
         public ExpressionTree(string expression)
         {
-            this.root = Compile(expression);  // ??? how to set root
+            this.root = GetNode(expression);  
             this.variables = new Dictionary<string, double>();
             this.expression = expression;
         }
@@ -33,8 +33,85 @@ namespace CptS321
         // post: evaluates the expression to a double value
         public double Evaluate()
         {
-            return this.Evaluate(this.root); // ?? how to get "final answer" evaluated single number
-            // error has to do with abstract nonabstract/internal class inconsistencies?
+            return this.GetNumericalValue(this.root); 
+        }
+
+
+        // Additional methods outside of given three below
+
+
+        private static BaseNode BuildVariableNode(string variable)
+        {
+            double num;
+            if (double.TryParse(variable, out num))
+            {
+                return new NumericalValueNode(num);
+            }
+
+            VariableNode node = new VariableNode(variable);
+            return new VariableNode(variable);
+        }
+
+        private static BaseNode GetNode(string expression)
+        {
+            if (expression.Length != 0)
+            {
+                int operatorIndex = expression.Length - 1;
+                while (operatorIndex > 0 && !OperatorNodeFactory.IsValidOperator(expression[operatorIndex]))
+                {
+                    operatorIndex--;
+                }
+                if (OperatorNodeFactory.IsValidOperator(expression[operatorIndex]))
+                {
+                    BinaryOperatorNode newNode = OperatorNodeFactory.CreateOperatorNode(expression[operatorIndex]);
+                    newNode.Left = GetNode(expression.Substring(0, operatorIndex));
+                    newNode.Right = GetNode(expression.Substring(operatorIndex + 1));
+
+                    return newNode;
+                }
+                double number;
+                if (double.TryParse(expression, out number))
+                {
+                    NumericalValueNode newNode = new NumericalValueNode(number);
+
+                    return newNode;
+                }
+                else
+                {
+                    VariableNode newNode = new VariableNode(expression);
+                    return newNode;
+                }
+            }
+            return null;
+        }
+
+        private double GetNumericalValue(BaseNode node)
+        {
+            if (node != null && node is BinaryOperatorNode)
+            {
+                BinaryOperatorNode temp = (BinaryOperatorNode)node;
+
+                return temp.GetNumericalValue(this.GetNumericalValue(temp.Left), this.GetNumericalValue(temp.Right));
+            }
+
+            if (node != null && node is VariableNode)
+            {
+                try
+                {
+                    return this.variables[node.Name];
+                }
+                catch
+                {
+                    throw new System.ArgumentException("Variable " + node.Name + " has not been defined.", "Variable Not Defined");
+                }
+            }
+
+            if (node != null && node is NumericalValueNode)
+            {
+                NumericalValueNode temp = (NumericalValueNode)node;
+                return temp.OperatorValue;
+            }
+            return 0;
         }
     }
 }
