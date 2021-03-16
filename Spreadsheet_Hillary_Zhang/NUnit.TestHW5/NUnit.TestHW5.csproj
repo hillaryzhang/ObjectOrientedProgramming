@@ -45,6 +45,19 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\SpreadsheetEngine.csproj">
+      <Project>{bfa8f937-3e8c-4a5d-ad4e-d322dc2d4c9f}</Project>
+      <Name>SpreadsheetEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spreadsheet_Hillary_Zhang\Spreadsheet_Hillary_Zhang.csproj">
+      <Project>{6b48e6b1-efe9-40ed-b210-ce217b7d21c1}</Project>
+      <Name>Spreadsheet_Hillary_Zhang</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
