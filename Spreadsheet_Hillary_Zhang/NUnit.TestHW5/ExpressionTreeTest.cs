@@ -133,6 +133,27 @@ namespace NUnit.Test
 
         private CptS321.ExpressionTree mixedOperatorMultDivideTest = new CptS321.ExpressionTree("2*10/5");
 
+        // post: makes sure mixedOperatorMultDivideTest yields the correct value based on the given expression
+        [Test]
+        public void mixedOperatorMultDivideTestEvaluate()
+        {
+            Assert.AreEqual(4, this.mixedOperatorMultDivideTest.Evaluate());
+        }
+
+        // post: makes sure that the given expression matches the final string expression
+        [Test]
+        public void mixedOperatorMultDivideTestExpression()
+        {
+            Assert.AreEqual("2*10/5", this.mixedOperatorMultDivideTest.expression);
+        }
+
+        // post: makes sure that mixedOperatorMultDivide does not yield a null
+        [Test]
+        public void mixedOperatorMultDivideTestIsNotNull()
+        {
+            Assert.IsNotNull(this.mixedOperatorMultDivideTest);
+        }
+
         private CptS321.ExpressionTree parenthesisAddSubtractTest = new CptS321.ExpressionTree("5 - (7 + 5)");
 
         private CptS321.ExpressionTree parenthesisMultDivideTest = new CptS321.ExpressionTree("5 * (7 / 5)");
