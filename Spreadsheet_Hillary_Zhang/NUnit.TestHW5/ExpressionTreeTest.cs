@@ -11,10 +11,10 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace NUnit.TestHW5
+namespace NUnit.Test
 {
     [TestFixture]
-    public class TestClassHW5
+    public class ExpressionTreeTest
     {
         private CptS321.ExpressionTree additionTest = new CptS321.ExpressionTree("4+1+9");
 
@@ -107,5 +107,15 @@ namespace NUnit.TestHW5
         {
             Assert.IsNotNull(this.divisionTest);
         }
+
+        private CptS321.ExpressionTree mixedOperatorAddSubtractTest = new CptS321.ExpressionTree("5 - 7 + 5");
+
+        private CptS321.ExpressionTree mixedOperatorMultDivideTest = new CptS321.ExpressionTree("5 * 7 / 5");
+
+        private CptS321.ExpressionTree parenthesisAddSubtractTest = new CptS321.ExpressionTree("5 - (7 + 5)");
+
+        private CptS321.ExpressionTree parenthesisMultDivideTest = new CptS321.ExpressionTree("5 * (7 / 5)");
+
+
     }
 }

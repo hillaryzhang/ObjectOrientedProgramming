@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spreadsheet_Hillary_Zhang",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetEngine", "ClassLibrary1\SpreadsheetEngine.csproj", "{BFA8F937-3E8C-4A5D-AD4E-D322DC2D4C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.TestHW5", "NUnit.TestHW5\NUnit.TestHW5.csproj", "{FA28B14E-6547-4ED8-B396-DCD4A8891A80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.Test", "NUnit.TestHW5\NUnit.Test.csproj", "{FA28B14E-6547-4ED8-B396-DCD4A8891A80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionTreeDemo", "ExpressionTreeDemo\ExpressionTreeDemo.csproj", "{9CE96587-2F0F-4216-8AEE-916017FD0680}"
 EndProject

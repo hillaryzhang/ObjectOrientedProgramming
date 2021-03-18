@@ -41,7 +41,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestClassHW5.cs" />
+    <Compile Include="ExpressionTreeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
