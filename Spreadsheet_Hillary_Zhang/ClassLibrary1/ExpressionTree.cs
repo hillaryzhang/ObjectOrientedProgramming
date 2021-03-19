@@ -101,7 +101,18 @@ namespace CptS321
         // string expression - the given english expression that may consist of letters, numbers, and operators
         private static BaseNode GetNodeHelper(int index, string expression)
         {
-            
+            if (index != -1)
+            {
+                BinaryOperatorNode node = OperatorNodeFactory.CreateOperatorNode(expression[index]);
+                node.Right = GetNode(expression.Substring(index + 1));
+                node.Left = GetNode(expression.Substring(0, index));
+                return node;
+            }
+            else if (index == -2)
+            {
+                throw new System.ArgumentException("Too many or too few parentheses", "Invalid expression");
+            }
+            return BuildVariableNode(expression);
         }
 
         // post: finds and returns the index of the operator with the lowest precedence in the expression
