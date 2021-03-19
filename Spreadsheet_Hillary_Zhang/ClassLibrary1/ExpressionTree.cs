@@ -92,7 +92,7 @@ namespace CptS321
                     throw new System.ArgumentException("Too many or too few parentheses", "Invalid Expression");
                 }
             }
-            int index = GetLowestOperatorInheritanceIndex(expression);
+            int index = GetLowestOperatorPrecedenceIndex(expression);
             return GetNodeHelper(index, expression);
         }
 
@@ -117,9 +117,43 @@ namespace CptS321
 
         // post: finds and returns the index of the operator with the lowest precedence in the expression
         // string expression - the given english expression that may consist of letters, numbers, and operators
-        public static int GetLowestOperatorInheritanceIndex(string expression)
+        public static int GetLowestOperatorPrecedenceIndex(string expression)
         {
-           
+            int parenthesisCounter = 0, lowestOperatorIndex = -1, i = expression.Length - 1;
+            for (; i >= 0; i--)
+            {
+                switch (expression[i])
+                {
+                    case '+':
+                    case '-':
+                        if (parenthesisCounter == 0)
+                        {
+                            return i;
+                        }
+                        break;
+                    case '*':
+                    case '/':
+                        if (parenthesisCounter == 0 && lowestOperatorIndex == -1)
+                        {
+                            lowestOperatorIndex = i;
+                        }
+                        break;
+                    case '(':
+                        parenthesisCounter++;
+                        break;
+                    case ')':
+                        parenthesisCounter--;
+                        break;
+                }
+            }
+            if (parenthesisCounter == 0)
+            {
+                return lowestOperatorIndex;
+            }
+            else
+            {
+                throw new System.ArgumentException("Too many or too few parentheses", "Invalid Expression");
+            }
         }
 
 
