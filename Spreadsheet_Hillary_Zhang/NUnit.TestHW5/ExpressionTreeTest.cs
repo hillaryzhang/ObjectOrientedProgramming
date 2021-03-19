@@ -1,9 +1,9 @@
 ﻿// Hillary Zhang
 // WSU ID: 11694139
-// 3/12/2021
+// 3/18/2021
 // CptS 321
 // Professor: Venera Arnaoudova
-// Assignment 5: Arithmetic Expression Trees (Part 1)
+// Assignment 6: Arithmetic Expression Trees (Part 2)
 
 // NUnit 3 tests
 // See documentation : https://github.com/nunit/docs/wiki/NUnit-Documentation

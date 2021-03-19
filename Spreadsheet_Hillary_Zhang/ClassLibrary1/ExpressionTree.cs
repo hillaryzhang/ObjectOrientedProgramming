@@ -64,36 +64,53 @@ namespace CptS321
         // string expression - the given english expression that may consist of letters, numbers, and operators
         private static BaseNode GetNode(string expression)
         {
-            if (expression.Length != 0)
+            expression = expression.Replace(" ", "");
+            int counter = 1, i = 0;
+            if (expression[i] == '(')
             {
-                int operatorIndex = expression.Length - 1;
-                while (operatorIndex > 0 && !OperatorNodeFactory.IsValidOperator(expression[operatorIndex]))
+                for (i = 1; expression.Length > i; i++)
                 {
-                    operatorIndex--;
+                    if (expression[i] == '(')
+                    {
+                        counter++;
+                    }
+                    else if (expression[i] == ')')
+                    {
+                        counter--;
+                        if (counter == 0)
+                        {
+                            if (i == expression.Length - 1)
+                            {
+                                return GetNode(expression.Substring(1, expression.Length - 2));
+                            }
+                            break;
+                        }
+                    }
                 }
-                if (OperatorNodeFactory.IsValidOperator(expression[operatorIndex]))
+                if (counter != 0)
                 {
-                    BinaryOperatorNode newNode = OperatorNodeFactory.CreateOperatorNode(expression[operatorIndex]);
-                    newNode.Left = GetNode(expression.Substring(0, operatorIndex));
-                    newNode.Right = GetNode(expression.Substring(operatorIndex + 1));
-
-                    return newNode;
-                }
-                double number;
-                if (double.TryParse(expression, out number))
-                {
-                    NumericalValueNode newNode = new NumericalValueNode(number);
-
-                    return newNode;
-                }
-                else
-                {
-                    VariableNode newNode = new VariableNode(expression);
-                    return newNode;
+                    throw new System.ArgumentException("Too many or too few parentheses", "Invalid Expression");
                 }
             }
-            return null;
+            int index = GetLowestOperatorInheritanceIndex(expression);
+            return GetNodeHelper(index, expression);
         }
+
+        // post: helps returns a node in the expression tree based on the given expression
+        // int index - the index of the lowest precedence operator in the expression
+        // string expression - the given english expression that may consist of letters, numbers, and operators
+        private static BaseNode GetNodeHelper(int index, string expression)
+        {
+            
+        }
+
+        // post: finds and returns the index of the operator with the lowest precedence in the expression
+        // string expression - the given english expression that may consist of letters, numbers, and operators
+        public static int GetLowestOperatorInheritanceIndex(string expression)
+        {
+           
+        }
+
 
         // post: returns the numerical value of a given node
         // BaseNode node - the given node to get the numerical value of 
