@@ -1,9 +1,9 @@
 ﻿// Hillary Zhang
 // WSU ID: 11694139
-// 3/12/2021
+// 3/18/2021
 // CptS 321
 // Professor: Venera Arnaoudova
-// Assignment 5: Arithmetic Expression Trees (Part 1)
+// Assignment 6: Arithmetic Expression Trees (Part 2)
 
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,6 @@ namespace CptS321
         {
             return this.GetNumericalValue(this.root); 
         }
-
 
         // Additional methods outside of given three below
 
@@ -155,7 +154,6 @@ namespace CptS321
                 throw new System.ArgumentException("Too many or too few parentheses", "Invalid Expression");
             }
         }
-
 
         // post: returns the numerical value of a given node
         // BaseNode node - the given node to get the numerical value of 
