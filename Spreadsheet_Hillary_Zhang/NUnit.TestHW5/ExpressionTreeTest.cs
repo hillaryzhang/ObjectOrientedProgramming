@@ -154,7 +154,29 @@ namespace NUnit.Test
             Assert.IsNotNull(this.mixedOperatorMultDivideTest);
         }
 
-        private CptS321.ExpressionTree parenthesisAddSubtractTest = new CptS321.ExpressionTree("5 - (7 + 5)");
+        private CptS321.ExpressionTree parenthesisAddSubtractTest = new CptS321.ExpressionTree("5+(7-4)");
+
+        // post: makes sure parenthesisAddSubtractTest yields the correct value based on the given expression
+        [Test]
+        public void parenthesisAddSubtractTestEvaluate()
+        {
+            Assert.AreEqual(8, this.parenthesisAddSubtractTest.Evaluate());
+        }
+
+        // post: makes sure that the given expression matches the final string expression
+        [Test]
+        public void parenthesisAddSubtractTestExpression()
+        {
+            Assert.AreEqual("5+(7-4)", this.parenthesisAddSubtractTest.expression);
+        }
+
+        // post: makes sure that parenthesisAddSubtractTest does not yield a null
+        [Test]
+        public void parenthesisAddSubtractTestIsNotNull()
+        {
+            Assert.IsNotNull(this.parenthesisAddSubtractTest);
+        }
+
 
         private CptS321.ExpressionTree parenthesisMultDivideTest = new CptS321.ExpressionTree("5 * (7 / 5)");
 
